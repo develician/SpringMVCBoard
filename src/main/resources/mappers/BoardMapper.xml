@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.killi8n.mappers.BoardMapper">
+	<select id="selectBoardListAll" resultType="com.board.killi8n.domain.BoardVO">
+	<![CDATA[
+		SELECT * FROM BOARD WHERE bno > 0 ORDER BY bno DESC;
+	]]>
+
+	</select>
+
+	<update id="updateBoard">
+		UPDATE board SET title = #{title}, content =
+		#{content} WHERE bno = #{bno};
+	</update>
+
+	<delete id="deleteBoard">
+		DELETE FROM board WHERE bno = #{bno};
+	</delete>
+
+	<insert id="createBoard">
+		INSERT INTO board (title, content, writer) VALUES
+		(#{title}, #{content}, #{writer});
+	</insert>
+
+	<select id="selectBoard" resultType="com.board.killi8n.domain.BoardVO">
+		SELECT * FROM board WHERE
+		bno = #{bno};
+	</select>
+</mapper>
