@@ -22,10 +22,12 @@
 	<insert id="createBoard">
 		INSERT INTO board (title, content, writer) VALUES
 		(#{title}, #{content}, #{writer});
+
 	</insert>
 
 	<select id="selectBoard" resultType="com.board.killi8n.domain.BoardVO">
 		SELECT * FROM board WHERE
 		bno = #{bno};
 	</select>
+
 </mapper>

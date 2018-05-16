@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <style>
 .table {
@@ -30,7 +31,9 @@
 					<tr style="height: 1.5rem">
 						<td>${board.bno }</td>
 						<td><a href="/board/${board.bno }"> ${board.title } </a></td>
-						<td>${board.regDate }</td>
+						<td>
+							<f:formatDate value="${board.regDate }" pattern="yyyy-MM-dd HH:mm"/>
+						</td>
 						<td>${board.writer }</td>
 					</tr>
 				</c:forEach>

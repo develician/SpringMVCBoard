@@ -61,6 +61,18 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		
+		return "redirect:/board/";
+	}
+	
+	@RequestMapping(value="/board/success", method=RequestMethod.GET)
+	public String boardSuccess(Model model) {
+		try {
+			model.addAttribute("message", "Success!!");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		return "board/writeSuccess";
 	}
 	
