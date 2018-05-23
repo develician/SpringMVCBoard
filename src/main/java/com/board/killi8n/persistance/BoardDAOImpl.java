@@ -1,6 +1,7 @@
 package com.board.killi8n.persistance;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -45,6 +46,18 @@ public class BoardDAOImpl implements BoardDAO {
 	public void DeleteBoard(int bno) {
 		// TODO Auto-generated method stub
 		session.delete(NAME_SPACE + ".deleteBoard", bno);
+	}
+
+	@Override
+	public int GetCount() {
+		// TODO Auto-generated method stub
+		return session.selectOne(NAME_SPACE + ".getCount");
+	}
+
+	@Override
+	public List<BoardVO> GetListWithPages(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return session.selectList(NAME_SPACE + ".selectBoardWithPage", map);
 	}
 
 }

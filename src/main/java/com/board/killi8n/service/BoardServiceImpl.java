@@ -1,6 +1,7 @@
 package com.board.killi8n.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -45,6 +46,20 @@ public class BoardServiceImpl implements BoardService {
 	public void DeleteBoard(int bno) {
 		// TODO Auto-generated method stub
 		dao.DeleteBoard(bno);
+	}
+
+	@Override
+	public int GetCount() {
+		// TODO Auto-generated method stub
+		
+		return dao.GetCount();
+		
+	}
+
+	@Override
+	public List<BoardVO> GetListWithPages(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return dao.GetListWithPages(map);
 	}
 
 }

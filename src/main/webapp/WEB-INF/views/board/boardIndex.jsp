@@ -40,7 +40,26 @@
 
 
 			</tbody>
+			
 		</table>
+
+		<c:choose>
+			<c:when test="${isInitial eq  true }">
+				<a href="/board?page=${prevPage }" class="btn btn-primary disabled">이전 페이지</a>
+			</c:when>
+			<c:otherwise>
+				<a href="/board?page=${prevPage }" class="btn btn-primary">이전 페이지</a>
+			</c:otherwise>
+		</c:choose>
+		<c:choose>
+			<c:when test="${isLast eq true}">
+				<a href="/board?page=${nextPage }" class="btn btn-primary disabled pull-right">다음 페이지</a>
+			</c:when>
+			<c:otherwise>
+			<a href="/board?page=${nextPage }" class="btn btn-primary pull-right">다음 페이지</a>
+			</c:otherwise>
+		</c:choose>
+		
 	</div>
 </div>
 

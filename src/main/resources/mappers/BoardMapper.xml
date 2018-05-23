@@ -3,11 +3,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.board.killi8n.mappers.BoardMapper">
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM BOARD;
+	</select>
+
 	<select id="selectBoardListAll" resultType="com.board.killi8n.domain.BoardVO">
 	<![CDATA[
 		SELECT * FROM BOARD WHERE bno > 0 ORDER BY bno DESC;
 	]]>
 
+	</select>
+	
+	<select id="selectBoardWithPage" parameterType="map" resultType="com.board.killi8n.domain.BoardVO">
+	<![CDATA[
+		SELECT * FROM BOARD WHERE bno < ${last} AND bno >= ${start} ORDER BY bno DESC LIMIT 10;
+	]]>
+		
 	</select>
 
 	<update id="updateBoard">
